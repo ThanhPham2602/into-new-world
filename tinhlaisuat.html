@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Tính lãi suât ngân hàng</title>
+</head>
+<body>
+    <h2>Bài tập tính lãi suất ngân hàng</h2>
+    <div>
+        Số tiền gửi: <input id="sotien" type="number"/><br>
+        Số năm gửi: <input id="sonamgui" type="number"/><br>
+        Lãi suất: <input id="laisuat" type="number" value="0.069"/>
+    </div>
+    <button type="button" 
+    style="background-color: rgb(101, 226, 43);" 
+    onclick="xu_ly_hien_thi()">Hiển thị kết quả</button> 
+    <script>
+        let money, year, interest;
+        money = parseInt(prompt("Nhập số tiền:"));
+        year = parseInt(prompt("Nhập số năm:"));
+        interest = parseFloat(prompt("Nhập lãi:"));
+
+        let total = money + money*year*interest;
+        alert(`Sau ${year} năm, số tiền nhận được là: ${total}`);
+
+    </script>
+</body>
+</html
