@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ketQua"></div>
+    <script>
+        let chieuCao = prompt("Nhập chiều cao:"); 
+        let canNang = prompt("Nhập cân nặng:");
+        if (chieuCao !== null && canNang !== null){
+            chieuCao = parseFloat(chieuCao);
+            canNang = parseFloat(canNang);
+            if(chieuCao > 0 && canNang>0){
+                let BMI = canNang / (chieuCao * chieuCao);
+                console.log(`Chỉ số BMI của bạn là ${BMI}`);
+                if (BMI>40) {
+                    alert("Béo phì cấp độ III");}
+                else if (35<=BMI && BMI<40) {
+                    alert("Béo phì cấp độ II");}
+                else if (30<=BMI && BMI<35) {
+                    alert("Béo phì cấp độ I");}
+                else if (25<=BMI && BMI<30) {
+                    alert("Thừa cân");}
+                else if (18.5<=BMI && BMI<25) {
+                    alert("Bình Thường");}
+                else if (17<=BMI && BMI<18.5) {
+                    alert("Gầy cấp độ I");}
+                else if (16<=BMI && BMI<17) {
+                    alert("Gầy cấp độ II");} 
+                else if (16>BMI) {
+                    alert("Gầy cấp độ III");}                       
+            }
+        }
+    </script>
+</body>
+</html>

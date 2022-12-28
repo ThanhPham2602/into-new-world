@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>KIỂM TRA NĂM/THÁNG NHUẬN</h2>
+    <pre>
+        -Năm nập có phải là năm nhuận không?
+        -Tháng thuộc năm nhập có bao nhiêu ngày?
+    </pre>
+    <form>
+        Năm: <input id="nam" type="number" min="1900"/> <br>
+        Tháng: <input id="thang" type="number" min="1" max="12"/> <br><br>
+        <button type="button" onclick="kiemTraNamThang()">Kiểm tra</button> 
+    </form>
+    <div id="ketqua"></div>
+    <script>
+        function kiemTraNamThang(){
+            let Nhap_Nam = document.getElementById("nam").value;
+            let Nhap_Thang = document.getElementById("thang").value;
+            if (Nhap_Nam !== '' && Nhap_Thang !== ''){
+               let nam = parseInt(Nhap_Nam);
+               let thang = parseInt(Nhap_Thang);
+
+                let laNamNhuan = false;
+                if(nam % 400 == 0){
+                    laNamNhuan = true;
+                }else if ((nam % 4 == 0) && (nam % 100 !=0)){
+                    laNamNhuan = true;
+                } else { laNamNhuan = false;}
+
+                let chuoi = "";
+                if (laNamNhuan) {
+                    // laNamNhuan == true
+                    chuoi += `${nam} là năm nhuận.`;
+                } else {
+                    chuoi += `${nam} là năm không nhuận.`;
+                }
+
+                let soNgay;
+                switch (thang) {
+                    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                        soNgay = 31; break; 
+                    case 4: case 6: case 9: case 11: 
+                        soNgay = 31; break;
+                    case 2: 
+                        soNgay = laNamNhuan ? 29 : 28; break;
+                    
+                    default: 
+                        soNgay = 0; break;     
+                }
+                chuoi += `<br>Tháng ${Nhap_Thang} có ${soNgay} ngày.`;
+
+                document.getElementById("ketqua").innerHTML = chuoi;
+
+            }else {
+                alert("Vui lòng nhập năm tháng!")
+            }
+        }
+    </script>
+</body>
+</html>
